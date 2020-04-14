@@ -1,4 +1,4 @@
-var key = process.env.ACCESS_TOKEN;
+var key = 'pk.eyJ1Ijoia2xpemFyYXpvIiwiYSI6ImNrOTA1ZGZobzAwcHUzZW9iN28zN3JiMmMifQ.cGwNtxLehLybd3DoIsAxow'
 var map = L.map('map').setView([40.6993475,-73.972668], 11); //Initialize the map
 
 // create a red polyline from an array of LatLng points
@@ -17,7 +17,7 @@ polygon.bindPopup("<img src='img/Via_Logo_White_Stacked.png' style='height:100px
         attribution: '©OpenStreetMap, ©CartoDB'
     }).addTo(map);
 
-    L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}'+key, {
+    L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token='+key, {
         attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
         maxZoom: 18,
         id: 'mapbox.light-v9_nolabels',

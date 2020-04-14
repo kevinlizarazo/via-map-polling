@@ -1,0 +1,22 @@
+{
+  "name": "via-map-polling",
+  "version": "1.0.0",
+  "description": "Voting for Via's next expansion through Google Forms beneath a Leaflet/Mapbox implementation.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinlizarazo/via-map-polling.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevinlizarazo/via-map-polling/issues"
+  },
+  "homepage": "https://github.com/kevinlizarazo/via-map-polling#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  }
+}

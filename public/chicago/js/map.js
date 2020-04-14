@@ -1,4 +1,4 @@
-var key = process.env.ACCESS_TOKEN;
+var key = 'pk.eyJ1Ijoia2xpemFyYXpvIiwiYSI6ImNrOTA1ZGZobzAwcHUzZW9iN28zN3JiMmMifQ.cGwNtxLehLybd3DoIsAxow'
 var map = L.map('map').setView([41.91404062230647,-87.65866755000002], 11); //Initialize the map
 map.createPane('labels');
 map.getPane('labels').style.zIndex = 650;
