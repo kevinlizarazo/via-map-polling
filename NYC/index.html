@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PRWJMH');</script>
+<!-- End Google Tag Manager -->
+  <meta charset="utf-8">
+  <title>Via NYC Expansion Poll</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta property="og:title" content="Via Expansion Poll" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ridewithvia.com/nyc-vote/" />
+  <meta property="og:image" content="#" />
+  <meta property="og:description" content="Vote for Via's next neighborhood expansion!" />
+  <!--Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <!--leaflet-->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+   integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+   crossorigin=""/>
+   <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+   integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+   crossorigin=""></script>
+  <!--Fonts-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <!--<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">-->
+
+  <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+  <link rel="icon" href="../content/img/icon_address.png" />
+
+  <style>
+
+  /* Fonts */
+
+@font-face {
+    font-family: 'AccordReg';
+    src: url('../content/fonts/AccordReg.eot'); /* IE9 Compat Modes */
+    src: url('../content/fonts/AccordReg.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('../content/fonts/AccordReg.woff') format('woff'), /* Modern Browsers */
+        url('../content/fonts/AccordReg.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('../content/fonts/AccordReg.svg#60709f4cba775a4488287582b92db6dd') format('svg'); /* Legacy iOS */
+} 
+
+@font-face {
+    font-family: 'AccordMedium';
+    src: url('../content/fonts/AccordMedium.eot'); /* IE9 Compat Modes */
+    src: url('../content/fonts/AccordMedium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('../content/fonts/AccordMedium.woff') format('woff'), /* Modern Browsers */
+        url('../content/fonts/AccordMedium.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('../content/fonts/AccordMedium.svg#60709f4cba775a4488287582b92db6dd') format('svg'); /* Legacy iOS */
+} 
+
+
+    html, body, #container {
+      height: 100%;
+      overflow: hidden;
+      width: 100%;
+      font-family: 'AccordReg', sans-serif;
+      font-size:16px;
+    }
+    h1 {
+      font-size: 30px;
+    }
+    #container {
+      position: relative;
+    }
+    #map {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      height: 100%;
+      width: auto;
+    }
+    #overlay {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      height: 120px;
+      width: 550px;
+      z-index: 314159;
+      background-color: #1FB7E9;
+      color: white;
+      padding: 0px 20px 20px 20px;
+    }
+    .leaflet-left {
+      padding-top:130px;
+    }
+    .leaflet-popup-content-wrapper {
+      background-color: #1FB7E9;
+      z-index: 414160;
+      color: white;
+      height: auto;
+      width: 275px;
+      margin: 0px;
+      text-align: center;
+      border:1px solid #fff;
+      font-family: 'AccordReg', sans-serif;
+    }
+    .leaflet-popup-tip{
+      background-color: #fff;
+    }
+    .leaflet-container a.leaflet-popup-close-button{
+      color:#eee;
+    }
+    .leaflet-container a.leaflet-popup-close-button:hover{
+      color:#fff;
+    }
+    @media screen and (max-width: 600px) { 
+      #overlay{
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+      }
+      #overlay h1 {
+        font-size: 20px;
+      }
+      #overlay h4 {
+        font-size: 16px;
+      }
+    }
+
+
+  </style>
+</head>
+
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PRWJMH"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <div id="container">
+      <div id="map"></div>
+      <div id="overlay">
+        <h1>Where should Via expand to next?</h1>
+        <h4>Click on a region and enter your email to vote!</h4>
+      </div>
+  </div>
+  
+
+  <script src="./geojson/airports.geojson" type="text/javascript"></script>
+  <script src="./geojson/boroughs.geojson" type="text/javascript"></script>
+  <script src="./geojson/expansion.geojson" type="text/javascript"></script>
+  <script src="./js/map.js" type="text/javascript"></script>
+
+
+</body>
+
+</html>
