@@ -1,4 +1,4 @@
-var key;
+var key = process.env.ACCESS_TOKEN;
 var map = L.map('map').setView([38.91211241043375,-77.02868700000005], 12); //Initialize the map
 map.createPane('labels');
 map.getPane('labels').style.zIndex = 650;
@@ -8,7 +8,7 @@ var positron = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/
 }).addTo(map);
 
 //Add a basemap
-L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token=KEY'+key, {
+L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token='+key, {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
     maxZoom: 18,
     id: 'mapbox.light-v9_nolabels',
