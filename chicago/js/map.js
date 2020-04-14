@@ -42,7 +42,6 @@ function onEachFeature(feature, layer) {
   if (name !== "Current Service Area"){
     container.on('click', '#vote', function(event) {
         event.preventDefault();
-        window.open('https://docs.google.com/forms/d/e/1FAIpQLSfuEvnYbyszWYEDBuGkVUDiYVia88u0bYBLjRtAs6BbyzvXng/formResponse?usp=pp_url&ifq&entry.473915152='+name+'&entry.183451837='+$('#email').val()+'&submit=submit', '_blank');
     });
     container.html(`<h4>` + name + `</h3><p>Enter your email below:</p><input type="email" size="32" maxLength="32" required placeholder="email@example.com" id="email" style="color:black;"></input><form id="vote"><button type="submit" id="submit" class="btn btn-default btn-sm" style="margin-top: 12px;">Submit</button></form>`);
     layer.bindPopup(container[0]);
